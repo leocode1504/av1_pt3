@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Item de Lista de Tarefas (To-Do List)</title>
+  <style>
+    :root{
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted:#9aa6b2;
+      --green:#16a34a;
+      --red:#ef4444;
+      --yellow:#f59e0b;
+      --radius:10px;
+      --pad:14px;
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg,var(--bg), #071020);
+      color:#e6eef6;
+      padding:32px;
+    }
+
+    .todo-list {
+      width:100%;
+      max-width:740px;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    .todo-item{
+      background: rgba(255,255,255,0.03);
+      border-radius: var(--radius);
+      padding: var(--pad);
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      box-shadow: 0 8px 20px rgba(2,6,23,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .todo-item::before{
+      content:"";
+      width:6px;
+      border-radius:6px;
+      background: linear-gradient(180deg,#4f46e5,#06b6d4);
+      margin-right:6px;
+      display:block;
+      flex-shrink:0;
+    }
+
+    .todo-content{
+      flex:1;
+    }
+
+    .todo-content h3{
+      font-size:16px;
+      margin:0 0 6px 0;
+      line-height:1.2;
+      color:#f8fafc;
+    }
+
+    .todo-content p{
+      margin:0;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .todo-meta{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      align-items:flex-end;
+    }
+
+    .status{
+      font-size:12px;
+      font-weight:700;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.04);
+      text-transform:uppercase;
+      letter-spacing:0.6px;
+    }
+
+    .status-concluida{
+      background: rgba(22,163,74,0.08);
+      color: var(--green);
+      border-color: rgba(22,163,74,0.14);
+    }
+    .status-pendente{
+      background: rgba(239,68,68,0.06);
+      color: var(--red);
+      border-color: rgba(239,68,68,0.12);
+    }
+    .status-progresso{
+      background: rgba(245,158,11,0.06);
+      color: var(--yellow);
+      border-color: rgba(245,158,11,0.12);
+    }
+
+    .concluida h3{
+      text-decoration: line-through;
+      opacity: 0.8;
+      color: #cbd5e1;
+    }
+
+    .note{
+      margin-top:12px;
+      font-size:13px;
+      color: #9fb0c6;
+    }
+
+    @media (max-width:560px){
+      .todo-item{ flex-direction:column; align-items:stretch; }
+      .todo-meta{ flex-direction:row; justify-content:space-between; align-items:center; }
+      .todo-item::before{ display:none; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="todo-list" aria-label="Exemplo de lista de tarefas">
+    <div class="todo-item">
+      <div class="todo-content">
+        <h3>Terminar Exercícios Práticos de HTML e CSS</h3>
+        <p>Concluir atividades pratica de html e css.</p>
+      </div>
+      <div class="todo-meta">
+        <span class="status status-pendente" aria-label="Status: Pendente">Pendente</span>
+        <small class="note">Prazo: 25/09/2025</small>
+      </div>
+    </div>
+    <div class="todo-item">
+      <div class="todo-content">
+        <h3>Terminar curso de Html/CSS/Javascript</h3>
+        <p>Assistir o curso inteiro para progredir conhecimentos.</p>
+      </div>
+      <div class="todo-meta">
+        <span class="status status-progresso" aria-label="Status: Em Progresso">Em Progresso</span>
+        <small class="note">Responsável: Leo</small>
+      </div>
+    </div>
+    <div class="todo-item concluida">
+      <div class="todo-content">
+        <h3>Fazer Atividade de Algoritmo</h3>
+        <p>Concluir exercicios de algoritmo.</p>
+      </div>
+      <div class="todo-meta">
+        <span class="status status-concluida" aria-label="Status: Concluída">Concluída</span>
+        <small class="note">Concluído: 16/09/2025</small>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>
